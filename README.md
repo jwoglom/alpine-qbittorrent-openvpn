@@ -1,3 +1,6 @@
+**Fork:** contains fixes from https://github.com/guillaumedsde/alpine-qbittorrent-openvpn/pull/131 with published Docker images at https://hub.docker.com/r/jwoglom/alpine-qbittorrent-openvpn/
+
+
 # [🐋 Alpine qBittorrent OpenVPN](https://github.com/guillaumedsde/alpine-qbittorrent-openvpn)
 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/guillaumedsde/alpine-qbittorrent-openvpn)](https://gitlab.com/guillaumedsde/alpine-qbittorrent-openvpn/-/pipelines)
