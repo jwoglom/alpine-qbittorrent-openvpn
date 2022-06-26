@@ -45,7 +45,10 @@ RUN addgroup -S openvpn \
     && apk del libcap --purge \
     && echo "openvpn ALL=(ALL)  NOPASSWD: /sbin/ip" >> /etc/sudoers \
     && /bin/sh /usr/sbin/install_qbittorrent.sh \
-    && chmod +x /usr/sbin/healthcheck.sh
+    && chmod +x /usr/sbin/healthcheck.sh \
+    && chmod +x /etc/cont-init.d/01-setup-permissions /etc/cont-init.d/02-setup-openvpn /etc/cont-init.d/03-setup-iptables \
+    && chmod +x /etc/openvpn/modify-openvpn-config.sh \
+    && chmod +x /etc/services.d/openvpn/run /etc/services.d/qbittorrent/run
 
 ENV CONFIG_DIR=/config \
     QBT_SAVE_PATH=/downloads \
