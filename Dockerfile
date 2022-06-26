@@ -29,7 +29,7 @@ RUN addgroup -S openvpn \
     -g openvpn \
     -G openvpn \
     openvpn \
-    && apk update
+    && apk update \
     && apk add --no-cache \
     bash \
     bind-tools \
