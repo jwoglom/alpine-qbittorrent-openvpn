@@ -13,3 +13,7 @@ echo "${CONFIG_DIR}/openvpn true openvpn:openvpn 0600 0700" | fix-attrs
 chmod 755 /usr/sbin/* /etc/openvpn/modify-openvpn-config.sh
 
 echo "nameserver ${DNS}" >/etc/resolv.conf
+
+if [[ "$RESTART_SECONDS" != "" ]]; then
+  (sleep $RESTART_SECONDS; echo Restarting; kill -9 1)&bg
+fi
