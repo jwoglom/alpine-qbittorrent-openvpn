@@ -38,15 +38,19 @@ else
 
     # build base URL for downloading VPN configuration
     lowercase_openvpn_provider=$(echo "${OPENVPN_PROVIDER}" | awk '{print tolower($0)}')
-    download_path="https://github.com/haugene/vpn-configs-contrib.git/trunk/openvpn/${lowercase_openvpn_provider}"
+    download_path="https://github.com/haugene/vpn-configs-contrib"
 
     echo "Downloading from ${download_path}"
 
     # Download all OpenVPN configurations from this provider
     (
+        mkdir -p "/tmp/clone"
         # shellcheck disable=SC2164
-        cd "/etc/openvpn"
-        svn export "${download_path}" --force
+        cd "/tmp/clone"
+        git clone "${download_path}"
+        # shellcheck disable=SC2164
+        cd "/tmp/clone/vpn-configs-contrib/openvpn"
+        cp -r "${lowercase_openvpn_provider}" "/etc/openvpn/"
     )
 
     echo Found files:
